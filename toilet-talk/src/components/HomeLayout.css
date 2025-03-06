@@ -2,7 +2,7 @@
     font-family: 'comic sans ms', cursive;
 }
 .container {
-    background-image: url('C:/Users/Andrew/GitHub/toilettalk/toilet-talk/src/assets/loginpage.png');
+    background-image: url('/src/assets/loginpage.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
