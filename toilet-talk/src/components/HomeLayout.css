@@ -1,0 +1,62 @@
+* {
+    font-family: 'comic sans ms', cursive;
+}
+.container {
+    background-image: url('C:/Users/Andrew/GitHub/toilettalk/toilet-talk/src/assets/loginpage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensure the container takes up the full height of the viewport */
+    padding: 20px;
+}
+/* img {
+    height:100dvh;
+    width:200dvh;
+    position:absolute;
+    overflow-x:hidden;
+} */
+#circle {
+    width: 100px;
+    height: 100px;
+    padding: 13px 18px;
+    border-radius: 60px;
+    font-size: 15px;
+    text-align: center;
+    float:right;
+    position:absolute;
+    right:0px;
+}
+#chat {
+    width:150px;
+    height:100px;
+    font-size:large;
+    position:absolute;
+    float:right;
+    bottom: 80px;
+    right:0px;
+}
+#university {
+    transform: translateY(500%);
+    width:70%;
+}
+.row {
+    justify-content: center;
+}
+
+.col {
+    justify-content: center;
+}
+#bottomrow {
+    transform: translateY(80%);
+    margin-left:12%;
+    margin-right:12%;
+}
+a {
+    text-decoration: none;
+    color:white;
+    font-weight:400;
+}
+.btn-info {
+    width:100px;
+
+}
