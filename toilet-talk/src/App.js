@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import HomeLayout from './components/HomeLayout';
+import UserProfile from './components/UserProfile';
 
 const cards = [
   {
@@ -25,11 +27,14 @@ const cards = [
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <HomeLayout cards={cards} />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomeLayout cards={cards} />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
