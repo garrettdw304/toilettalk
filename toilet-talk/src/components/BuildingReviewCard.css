@@ -1,0 +1,32 @@
+.card {
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  .card h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .stars {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .star {
+    width: 20px;
+    height: 20px;
+    color: #d1d5db; /* Gray by default */
+  }
+  
+  .star.filled {
+    color: #facc15; /* Yellow for filled stars */
+  }
+  
+  .rating-text {
+    margin-left: 8px;
+    color: #6b7280;
+  }
