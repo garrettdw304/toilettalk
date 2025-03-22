@@ -35,13 +35,8 @@ const UserProfile = () => {
           {/* Navbar Container containing username, edit profile dropdown, and user profile picture */}
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-              <a className="home-button" href="#">
-                <div className="profile-name">
-                  {userInfo.displayName}
-                </div>
-              </a>
               {/* Edit Profile dropdown menu */}
-              <ul className="navbar-nav">
+              <ul className="navbar-nav me-auto">
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                      data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,6 +49,11 @@ const UserProfile = () => {
                   </ul>
                 </li>
               </ul>
+              <div className="home-button">
+                <div className="profile-name">
+                  {userInfo.displayName}
+                </div>
+              </div>
               {/* Profile Picture Container */}
               <div className="d-flex ms-auto align-items-center">
                 <div className="profile-pic-container">
