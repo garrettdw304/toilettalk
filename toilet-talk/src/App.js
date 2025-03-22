@@ -5,6 +5,8 @@ import HomeLayout from './components/HomeLayout';
 import UserProfile from './components/UserProfile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import ReportEmail from './components/ReportEmail/ReportEmail';
+ 
 
 const cards = [
   {
@@ -34,6 +36,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeLayout cards={cards} />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/email" element={<ReportEmail />} />
         </Routes>
       </div>
     </Router>
