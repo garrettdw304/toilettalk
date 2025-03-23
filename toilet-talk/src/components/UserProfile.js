@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './UserProfile.css';
 
 const UserProfile = () => {
@@ -32,9 +33,12 @@ const UserProfile = () => {
         <p>Failed fetching user info</p>
       ) : (
         <div>
-          {/* Navbar Container containing username, edit profile dropdown, and user profile picture */}
+          {/* Navbar Container containing home button, edit profile dropdown, and user profile picture */}
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
+              <Link to="/">
+                <button className="btn btn-primary">Home</button>
+              </Link>
               {/* Edit Profile dropdown menu */}
               <ul className="navbar-nav me-auto">
                 <li className="nav-item dropdown">

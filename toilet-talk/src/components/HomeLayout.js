@@ -27,6 +27,15 @@ const HomeLayout = ({ cards }) => {
           >
             Chat
           </button>
+          <Link to="/building-ratings">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            id="building-ratings"
+          >
+            Building Ratings
+          </button>
+        </Link>
         </div>
 
         {/* Displays building cards */}
