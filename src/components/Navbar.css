@@ -1,0 +1,50 @@
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adding shadow */
+    display: flex;
+    justify-content: space-between; /* Aligning items on the same line */
+    align-items: center; /* Centering items vertically */
+  }
+  .navbar-brand {
+    padding: 15px 20px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Centering items vertically */
+  }
+  .navbar-brand img {
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .navbar-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  .navbar-menu a:hover {
+    background-color: #555;
+  }
+  .greeting {
+    color: #333;
+    padding: 15px 20px;
+  }
+  .main-content {
+    padding: 20px;
+    margin-top: 70px; /* Adjusting margin to make space for navbar */
+  }
+  @media screen and (min-width: 769px) {
+    .main-content {
+      margin-left: 270px;
+    }
+  }
+  .jersey-15-regular {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
