@@ -5,6 +5,7 @@ import './App.css';
 import HomeLayout from './components/HomeLayout';
 import UserProfile from './components/UserProfile';
 import BuildingRatings from './components/BuildingReviewCard';
+import MaintRequest from './components/MaintRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<HomeLayout cards={cards} />} />
           <Route path="/building-ratings" element={<BuildingRatings />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/maintrequest" element={<MaintRequest />} />
         </Routes>
       </div>
     </Router>
