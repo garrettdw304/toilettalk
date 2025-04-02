@@ -1,34 +1,29 @@
-/* ✅ Navbar styling */
-.custom-navbar {
-  background-color: #4a7fc1;
-  padding: 16px 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-logo {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-}
-
-/* ✅ Prettier custom buttons (already included before, for clarity again) */
-.btn-custom {
-  background-color: #4a7fc1;
+/* HomeLayout.css */
+.button {
+  width: 220px;
+  height: 55px;
+  font-size: 1.2rem;
   color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 18px;
-  font-weight: 500;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  background-color: #004e7c; /* Navy Blue */
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.3s, background-color 0.3s ease-in-out, box-shadow 0.3s;
 }
 
-.btn-custom:hover {
-  background-color: #3a6aad;
-  transform: translateY(-2px);
+.button:hover {
+  transform: translateY(-4px);
+  background-color: #00395d; /* Darker shade of navy on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
 }
 
-.btn-custom:active {
-  background-color: #325a90;
-  transform: translateY(0);
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 78, 124, 0.5); /* Focus with lighter blue outline */
 }
+

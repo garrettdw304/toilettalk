@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./MaintRequest.css";
+import Navbar from "./Navbar";
 
 const MaintRequest = () => {
   const [formData, setFormData] = useState({
@@ -46,7 +47,10 @@ const MaintRequest = () => {
   };
 
   return (
+<div>
+<Navbar />
     <div className="container">
+
       <div className="form-box">
         <h1 className="title">Bathroom Maintenance Request</h1>
         <form onSubmit={sendEmail}>
@@ -107,6 +111,7 @@ const MaintRequest = () => {
           <button className="submit-btn" type="submit">Send Report</button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

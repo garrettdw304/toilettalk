@@ -1,12 +1,17 @@
 .navbar {
-    background-color: #333;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adding shadow */
-    display: flex;
-    justify-content: space-between; /* Aligning items on the same line */
-    align-items: center; /* Centering items vertically */
-  }
+  background-color: #333;
+  overflow: hidden;
+  position: fixed; /* Keeps it fixed at the top */
+  top: 0; /* Aligns to the top of the viewport */
+  left: 0; /* Ensures it starts at the very left */
+  width: 100%;/* Makes it span the full width of the screen */
+  z-index: 1000; /* Ensures it stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
   .navbar-brand {
     padding: 15px 20px;
     font-size: 20px;
