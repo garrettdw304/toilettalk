@@ -36,7 +36,7 @@ const UserProfile = () => {
           {/* Navbar Container containing home button, edit profile dropdown, and user profile picture */}
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-              <Link to="/">
+              <Link to="/home">
                 <button className="btn btn-primary">Home</button>
               </Link>
               {/* Edit Profile dropdown menu */}

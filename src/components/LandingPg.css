@@ -1,0 +1,28 @@
+/* General button styling */
+.button {
+    padding: 1.2rem 2rem; /* Increased vertical padding for more height */
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: #004e7c; /* Updated button color */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    width: 100%; /* Full width for the buttons */
+    max-width: 300px; /* Limit max width for consistent button size */
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    line-height: 1.5; /* Added line height to ensure text is vertically centered */
+    height: 60px; /* Fixed height to ensure the button has enough space for text */
+  }
+  
+  /* Hover effect for the button */
+  .button:hover {
+    background-color: #003b5c; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling effect on hover */
+  }
+  
+  
+  

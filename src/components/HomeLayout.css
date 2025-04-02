@@ -1,29 +1,146 @@
-/* HomeLayout.css */
-.button {
-  width: 220px;
-  height: 55px;
-  font-size: 1.2rem;
-  color: white;
-  background-color: #004e7c; /* Navy Blue */
-  text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Ensure the gradient background covers the entire page */
+html, body {
+  height: 100%; /* Full height for both the body and html */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.home-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes the full height of the viewport */
+  background: linear-gradient(to bottom right, #a2d9ff, #ffffff);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  text-align: center;
+  width: 100%; /* Full width for the container */
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
+  min-width: 350px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Logo Styling */
+.card .logo {
+  width: 400px; /* Increase the logo size */
+  margin-bottom: 40px; /* Space below the logo */
+  margin-left: auto; /* Center the logo horizontally */
+  margin-right: auto; /* Center the logo horizontally */
+  display: block; /* Ensure it’s treated as a block element */
+}
+
+/* Title Styling */
+h1 {
+  font-family: 'Poppins', sans-serif; /* Using Poppins font for title */
+  font-size: 3.5rem; /* Larger font size for the title */
+  font-weight: 700; /* Bold weight */
+  color: #333;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px; /* Slight space between letters */
+  text-align: center;
+  text-transform: none; /* Preserve lowercase/uppercase as typed */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Subtitle Styling */
+p {
+  font-family: 'Montserrat', sans-serif; /* Use Montserrat font for subtitle */
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500; /* Slightly less bold than title */
+}
+
+/* Button Styling */
+.button {
+  padding: 1.2rem 2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  text-transform: uppercase;
-  transition: transform 0.3s, background-color 0.3s ease-in-out, box-shadow 0.3s;
+  background-color: #004e7c;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  display: block;
+  width: 100%; /* Full width for the buttons */
+  max-width: 350px; /* Ensure buttons don't grow too wide */
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  line-height: 1.5;
+  height: 60px;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif; /* Use Poppins for button text */
 }
 
-.button:hover {
-  transform: translateY(-4px);
-  background-color: #00395d; /* Darker shade of navy on hover */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+/* Button Container Styling */
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem; /* Added space between the buttons and other content */
 }
 
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(0, 78, 124, 0.5); /* Focus with lighter blue outline */
+/* Mobile Responsiveness - Stack buttons vertically on smaller screens */
+@media (max-width: 768px) {
+  .buttonContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .button {
+    font-size: 1.25rem;
+    min-width: 220px;
+  }
+}
+
+/* 2x2 grid layout on larger screens */
+@media (min-width: 769px) {
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+    gap: 1.5rem;
+  }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  .button {
+    font-size: 1.25rem;
+    min-width: 180px;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Stack buttons vertically on very small screens */
+  .buttonContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 

@@ -8,6 +8,7 @@ import BuildingRatings from './components/BuildingReviewCard';
 import MaintRequest from './components/MaintRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import LandingPage from './components/LandingPg';
 
 
 function App() {
@@ -15,10 +16,11 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<HomeLayout />} />
+          <Route path="/home" element={<HomeLayout />} />
           <Route path="/building-ratings" element={<BuildingRatings />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/maintrequest" element={<MaintRequest />} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </div>
     </Router>
