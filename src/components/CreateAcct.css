@@ -1,0 +1,151 @@
+/* General Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .create-acct-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #a2d9ff, #ffffff); /* Soft blue gradient */
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Card Styling */
+  .create-acct-card {
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;  /* Slightly wider card */
+    min-width: 350px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Branding Styling (ToiletTalk) */
+  .brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #004e7c; /* Blue color to match the button */
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    letter-spacing: 1px;
+  }
+  
+  /* Title Styling */
+  .create-acct-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem; /* Slightly smaller title */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-transform: none; /* Keep as entered */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Subtitle Styling */
+  .create-acct-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  
+  /* Input Field Styling */
+  .create-acct-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input-field {
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .input-field:focus {
+    border-color: #004e7c; /* Blue border on focus */
+  }
+  
+  /* Button Styling */
+  .create-acct-button {
+    padding: 1.2rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: #004e7c; /* Blue background */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    width: 100%; /* Full width for the button */
+    max-width: 350px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    line-height: 1.5;
+    height: 60px;
+    white-space: nowrap;
+  }
+  
+  /* Button Hover Effect */
+  .create-acct-button:hover {
+    background-color: #003b5c; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift effect */
+  }
+  
+  /* Login Redirect */
+  .login-redirect {
+    font-size: 1rem;
+  }
+  
+  .login-link {
+    color: #004e7c;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .create-acct-card {
+      width: 95%; /* Allow card to take more width on smaller screens */
+    }
+  
+    .create-acct-title {
+      font-size: 2.5rem; /* Adjust title size for smaller screens */
+    }
+  
+    .brand-name {
+      font-size: 2rem; /* Adjust brand name size for smaller screens */
+    }
+  }
+  

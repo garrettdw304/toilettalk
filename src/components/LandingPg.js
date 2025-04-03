@@ -16,10 +16,10 @@ const LandingPage = () => {
           Log in to share your thoughts, report issues, and connect with the community.
         </p>
         <div style={styles.buttonContainer}>
-          <Link to="/home" className="button" style={styles.button}>
+          <Link to="/login" className="button" style={styles.button}>
             Login
           </Link>
-          <Link to="/home" className="button" style={styles.button}>
+          <Link to="/createacct" className="button" style={styles.button}>
             Create Account
           </Link>
         </div>

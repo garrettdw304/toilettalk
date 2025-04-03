@@ -9,6 +9,8 @@ import MaintRequest from './components/MaintRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import LandingPage from './components/LandingPg';
+import LoginPage from './components/Login';
+import CreateAcct from './components/CreateAcct';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/home" element={<HomeLayout />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/createacct" element={<CreateAcct/>} />
           <Route path="/building-ratings" element={<BuildingRatings />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/maintrequest" element={<MaintRequest />} />
