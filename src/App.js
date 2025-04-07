@@ -11,20 +11,26 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import LandingPage from './components/LandingPg';
 import LoginPage from './components/Login';
 import CreateAcct from './components/CreateAcct';
+import BathroomSearch from './components/BathroomSearch';
+import Bathroom from './components/Bathroom';
+
 
 
 function App() {
   return (
-    <Router>
+      <Router>
       <div className="App">
         <Routes>
           <Route path="/home" element={<HomeLayout />} />
+          <Route path="/navbar" element={<Navbar />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/createacct" element={<CreateAcct/>} />
           <Route path="/building-ratings" element={<BuildingRatings />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/maintrequest" element={<MaintRequest />} />
           <Route path="/" element={<LandingPage />} />
+          <Route path="/bathroomsearch" element={<BathroomSearch />} />
+          <Route path="/bathroom" element={<Bathroom />} />
         </Routes>
       </div>
     </Router>

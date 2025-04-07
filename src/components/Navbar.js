@@ -26,6 +26,7 @@ function Navbar() {
         <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/chat" activeClassName="active">Chat</Link>
         <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/maintrequest" activeClassName="active">Maintenance Request</Link>
         <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/userprofile" activeClassName="active">User Profile</Link>
+        <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/bathroomsearch" activeClassName="active">Bathroom Search</Link>
       </div>
     </div>
   );

@@ -28,6 +28,9 @@ const HomeLayout = () => {
           <Link to="/userprofile" className="button">
             Profile
           </Link>
+          <Link to="/bathroomsearch" className="button">
+            Bathroom Search
+          </Link>
         </div>
       </div>
     </div>

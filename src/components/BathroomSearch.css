@@ -1,0 +1,36 @@
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .search-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .suggestions {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .suggestion-item {
+    text-decoration: none;
+    background-color: #f8f8f8;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: background 0.3s;
+    text-align: center;
+    color: black;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #e0e0e0;
+  }
+  

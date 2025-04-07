@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import "./BuildingReviewCard.css"; // Add your custom CSS here
+import Navbar from "./Navbar";
 
 const buildings = [
   {
@@ -26,7 +27,10 @@ const buildings = [
 
 const BuildingRatings = () => {
   return (
+    <div>
+   <Navbar />
     <div className="container">
+      
       <header className="header">
         <Link to="/">
           <button className="btn btn-primary">Home</button>
@@ -59,6 +63,7 @@ const BuildingRatings = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
