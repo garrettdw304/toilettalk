@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./MaintRequest.css";
 import Navbar from "./Navbar";
+import { Link } from 'react-router-dom';
 
 const MaintRequest = () => {
   const [formData, setFormData] = useState({
@@ -107,8 +108,13 @@ const MaintRequest = () => {
               required
             ></textarea>
           </div>
-
+        <div>
           <button className="submit-btn" type="submit">Send Report</button>
+          <p></p>
+          <Link className="cancel_link" to="/home">
+                <button className="cancel-btn">Cancel</button>
+              </Link>
+              </div>
         </form>
       </div>
     </div>

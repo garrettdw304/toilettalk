@@ -6,6 +6,9 @@ const HomeLayout = () => {
   return (
     <div className="home-container">
       <div className="card">
+      <a href="/" className="logout_button" title="Log Out">
+          <i className="fas fa-sign-out-alt"></i>
+          </a>
         <img
           src="/assets/toilet.jpg" // Replace with your actual logo path
           alt="App Logo"

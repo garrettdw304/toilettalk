@@ -17,7 +17,7 @@ const LandingPage = () => {
         </p>
         <div style={styles.buttonContainer}>
           <Link to="/login" className="button" style={styles.button}>
-            Login
+            Log In
           </Link>
           <Link to="/createacct" className="button" style={styles.button}>
             Create Account

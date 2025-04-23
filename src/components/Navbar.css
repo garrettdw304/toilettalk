@@ -36,7 +36,7 @@ html, body {
   .navbar-menu a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px;
     display: inline-block;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 600;
@@ -46,7 +46,7 @@ html, body {
     align-items: center;
     height: 100%;
     gap: 10px; /* Optional: fine-tune spacing between links */
-    padding-right: 20px; /* 👈 Adds spacing from the right edge */
+    padding-right: 60px; /* 👈 Adds spacing from the right edge */
   }
   
   .navbar-menu a:hover {
@@ -82,4 +82,27 @@ html, body {
   min-height: 75px;
   border-radius: 5px;
   align-items: center;
+}
+.logout_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logout_button i {
+  pointer-events: none; /* so clicking the icon triggers the <a> */
+}
+
+.logout_button:hover {
+  color: #e60000;
+  background-color: rgba(230, 0, 0, 0.1);
 }

@@ -20,7 +20,7 @@ const LoginPage = () => {
 
         <div className="button-container">
         <Link to="/home" className="login-button">
-            Login
+            Log In
           </Link>
           <Link to="/" className="forgot-password-link">Forgot Password?</Link>
         </div>

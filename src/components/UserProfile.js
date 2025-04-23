@@ -50,6 +50,7 @@ const UserProfile = () => {
                     <li><a className="dropdown-item" href="#">Bio</a></li>
                     <li><a className="dropdown-item" href="#">Profile Picture</a></li>
                     <li><a className="dropdown-item" href="#">User Name</a></li>
+                    <li><a className="dropdown-item" href="/">Log Out</a></li>
                   </ul>
                 </li>
               </ul>

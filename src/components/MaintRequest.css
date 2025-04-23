@@ -77,3 +77,17 @@
     background: #45a049;
   }
   
+  .cancel-btn {
+    width: 100%;
+    background: red;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .cancel-btn:hover {
+    background: rgb(187, 7, 7);
+  }
