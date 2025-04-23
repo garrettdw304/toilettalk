@@ -27,16 +27,9 @@ const buildings = [
 
 const BuildingRatings = () => {
   return (
-    <div>
+    <div className="contents">
    <Navbar />
     <div className="container">
-      
-      <header className="header">
-        <Link to="/">
-          <button className="btn btn-primary">Home</button>
-        </Link>
-        <h1>Toilet Talk</h1>
-      </header>
       <div className="building-info">
         <img src="path/to/white-hall.jpg" alt="White Hall" className="building-image" />
         <div className="building-details">

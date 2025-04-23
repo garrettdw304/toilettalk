@@ -30,3 +30,10 @@
     margin-left: 8px;
     color: #6b7280;
   }
+
+  .contents{
+    min-height: 180vh;
+  }
+  .container{
+    padding-top: 400px;
+  }
