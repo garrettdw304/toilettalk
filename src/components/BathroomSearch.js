@@ -28,7 +28,6 @@ const BathroomSearch = () => {
         <div>
         <Navbar />
         <div className="container">
-
         <div className="search-container">
           <h2>Search for a Bathroom</h2>
           <input
@@ -47,6 +46,14 @@ const BathroomSearch = () => {
               ))}
             </div>
            </div>
+           <p></p>
+           <p></p>
+           <p></p>
+           <div>
+        <Link to="/building-ratings" className="button">
+            View All Ratings
+          </Link>
+        </div>
           </div>
         </div>
       );

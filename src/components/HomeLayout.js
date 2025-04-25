@@ -19,8 +19,8 @@ const HomeLayout = () => {
           Share your thoughts, report issues, and connect with the community!
         </p>
         <div className="buttonContainer">
-          <Link to="/building-ratings" className="button">
-            Ratings
+        <Link to="/bathroomsearch" className="button">
+            Bathroom Ratings
           </Link>
           <Link to="/" className="button">
             Chat
@@ -30,9 +30,6 @@ const HomeLayout = () => {
           </Link>
           <Link to="/userprofile" className="button">
             Profile
-          </Link>
-          <Link to="/bathroomsearch" className="button">
-            Bathroom Search
           </Link>
         </div>
       </div>
