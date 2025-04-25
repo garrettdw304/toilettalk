@@ -1,21 +1,21 @@
 .App {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f7f8fc, #dde1f8);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-  }
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f7f8fc, #dde1f8);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
   
   .container {
+    min-height: 100vh;
+    background: linear-gradient(to right, #f7f8fc, #dde1f8);
+    padding-top: 70px; /* to clear space for navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
   }
   
   .form-box {
