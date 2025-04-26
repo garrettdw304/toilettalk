@@ -13,6 +13,7 @@ import LoginPage from './components/Login';
 import CreateAcct from './components/CreateAcct';
 import BathroomSearch from './components/BathroomSearch';
 import Bathroom from './components/Bathroom';
+import ChatPage from './components/Chat';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/bathroomsearch" element={<BathroomSearch />} />
           <Route path="/bathroom" element={<Bathroom />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </div>
     </Router>

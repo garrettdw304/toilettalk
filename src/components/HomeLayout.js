@@ -22,7 +22,7 @@ const HomeLayout = () => {
         <Link to="/bathroomsearch" className="button">
             Bathroom Ratings
           </Link>
-          <Link to="/" className="button">
+          <Link to="/chat" className="button">
             Chat
           </Link>
           <Link to="/maintrequest" className="button">

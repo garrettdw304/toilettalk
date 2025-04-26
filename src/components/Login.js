@@ -22,7 +22,6 @@ const LoginPage = () => {
         <Link to="/home" className="login-button">
             Log In
           </Link>
-          <Link to="/" className="forgot-password-link">Forgot Password?</Link>
         </div>
 
         <p className="signup-redirect">
