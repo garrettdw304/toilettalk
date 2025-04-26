@@ -4,12 +4,13 @@
     display: flex;
     justify-content: center;
     padding-top: 70px;
+    padding-bottom: 10px;
   }
   
   .chat-box {
     background: #ffffff;
     width: 90%;
-    max-width: 700px;
+    max-width: 900px;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -18,7 +19,7 @@
   
   .chat-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     color: #004e7c;
@@ -35,23 +36,36 @@
   }
   
   .message {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     margin-bottom: 12px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #9f9c9c;
+    gap: 10px;
+  }
+
+  .message-content {
+    flex: 1;
+    min-width: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start; /* ← forces left alignment */
   }
   
   .sender {
     font-weight: bold;
-    color: #333;
-    margin-right: 10px;
+    color: #004e7c;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    text-align: left;
   }
   
   .text {
-    flex: 1;
     color: #555;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: left; /* ← just in case */
   }
   
   .delete-btn {
@@ -62,7 +76,16 @@
     padding: 5px 10px;
     cursor: pointer;
     font-size: 0.8rem;
+    white-space: nowrap;
   }
+  
+  .char-counter {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
   
   .delete-btn:hover {
     background: #c00000;

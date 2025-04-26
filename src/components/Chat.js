@@ -2,22 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Chat.css";
 import Navbar from "./Navbar";
 
-
-
-// Replace these:
-//fetchMessagesFromBackend()
-//sendMessageToBackend(message)
-//deleteMessageFromBackend(id)
-
-// With actual API calls like:
-//await fetch('/api/messages')
-//await axios.post('/api/messages', message)
-//await axios.delete(`/api/messages/${id}`)
-
-
+const MAX_CHAR_LIMIT = 300;
 
 const ChatPage = () => {
-  // 🔧 Temporary current user for testing
   const currentUser = {
     id: "user123",
     username: "ToiletKing42"
@@ -27,7 +14,6 @@ const ChatPage = () => {
   const [newMessage, setNewMessage] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
 
-  // 🔧 TEMPORARY: Simulate fetching messages
   const fetchMessagesFromBackend = async () => {
     return [
       {
@@ -47,7 +33,6 @@ const ChatPage = () => {
     ];
   };
 
-  // 🔧 TEMPORARY: Simulate sending a message
   const sendMessageToBackend = async (message) => {
     const fakeMessage = {
       ...message,
@@ -56,7 +41,6 @@ const ChatPage = () => {
     return fakeMessage;
   };
 
-  // 🔧 TEMPORARY: Simulate deleting a message
   const deleteMessageFromBackend = async (id) => {
     console.log(`Deleted message with id ${id}`);
     return true;
@@ -72,7 +56,7 @@ const ChatPage = () => {
 
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!newMessage.trim()) return;
+    if (!newMessage.trim() || newMessage.length > MAX_CHAR_LIMIT) return;
 
     const messageToSend = {
       text: newMessage,
@@ -99,13 +83,15 @@ const ChatPage = () => {
           <h1 className="chat-title">ToiletTalk Chat Room</h1>
           <div className="message-log">
             {messages.map((msg) => (
-              <div key={msg.id} className="message">
-                <span className="sender">{msg.sender}:</span>
-                <span className="text">{msg.text}</span>
-                {msg.userId === currentUser.id && (
-                  <button className="delete-btn" onClick={() => handleDelete(msg.id)}>Delete</button>
-                )}
-              </div>
+                <div key={msg.id} className="message">
+  <div className="message-content">
+    <span className="sender">{msg.sender}:</span>
+    <span className="text">{msg.text}</span>
+  </div>
+  {msg.userId === currentUser.id && (
+    <button className="delete-btn" onClick={() => handleDelete(msg.id)}>Delete</button>
+  )}
+</div>
             ))}
           </div>
           <form className="chat-form" onSubmit={handleSend}>
@@ -113,6 +99,7 @@ const ChatPage = () => {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
+              maxLength={MAX_CHAR_LIMIT}
               required
             ></textarea>
             <div className="chat-controls">
@@ -124,6 +111,9 @@ const ChatPage = () => {
                 />
                 Post as Anonymous
               </label>
+              <span className="char-counter">
+                {newMessage.length}/{MAX_CHAR_LIMIT}
+              </span>
               <button type="submit" className="send-btn">Send</button>
             </div>
           </form>
@@ -134,5 +124,6 @@ const ChatPage = () => {
 };
 
 export default ChatPage;
+
 
 
