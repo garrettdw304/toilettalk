@@ -22,14 +22,19 @@
     padding: 1rem;
   }
   
-  .navbar-nav {
-    margin-left: 1rem; /* Aligns the dropdown to the left */
-  }
+/* Position the dropdown menu to the right of the profile name */
+.navbar-nav {
+  margin-left: auto; /* Push the dropdown to the right */
+}
   
   .profile-name {
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 1rem;
+    align-content: center;
+    display: fixed;
+    justify-content: center;
+    align-items: center;
   }
   
   .profile-pic-container {
@@ -64,3 +69,45 @@
   .card-body {
     text-align: left;
   }
+
+  .title {
+    padding: 3px;
+    align-items: center;
+    padding-right: 40px;
+  }
+  
+  .duck {
+    min-width: 75px;
+    min-height: 75px;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+
+/* Change the text color of the dropdown button */
+.navbar .nav-item .nav-link.dropdown-toggle {
+  color: white !important;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for the dropdown button (slight color change) */
+.navbar .nav-item .nav-link.dropdown-toggle:hover {
+  background-color: #444; /* Light background color change */
+}
+
+/* Ensure dropdown items have darker text and white text on hover */
+.navbar .dropdown-menu .dropdown-item {
+  color: #333;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #555; /* Subtle background color on hover */
+  color: white;
+}
+.nav-item {
+  margin-left: 1rem; /* Space between the profile name and dropdown button */
+}
+.pad{
+  padding-left: 60px;
+  padding-right: 10px;
+}

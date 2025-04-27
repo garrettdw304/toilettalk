@@ -5,7 +5,8 @@ import './UserProfile.css';
 const UserProfile = () => {
   const userInfo = {
     displayName: 'John Doe',
-    profilePicture: 'path/to/profile-picture.jpg',
+    /*profilePicture: 'path/to/profile-picture.jpg',*/
+    profilePicture: 'assets/robot.jpg',
   };
 
   const userUsage = {
@@ -36,11 +37,23 @@ const UserProfile = () => {
           {/* Navbar Container containing home button, edit profile dropdown, and user profile picture */}
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-              <Link to="/home">
-                <button className="btn btn-primary">Home</button>
-              </Link>
-              {/* Edit Profile dropdown menu */}
-              <ul className="navbar-nav me-auto">
+            <div className='title'>
+      <Link to="/home" class="navbar-brand" style={{ color: "white" }}>
+        <img src="/assets/duckontoilet.jpg" className='duck' alt="ToiletTalk Logo" />
+        <nobr class="jersey-15-regular" style={{ fontSize: "35px" }}>ToiletTalk</nobr>
+      </Link>
+      </div>
+              {/* Profile Picture Container */}
+              <div className="d-flex ms-auto align-items-center">
+              <div className="profile-name">
+                  {userInfo.displayName}
+                </div>
+                <div className="profile-pic-container">
+                  <img src={userInfo.profilePicture} className="profile-pic" alt="Profile Picture" />
+                </div>
+              </div>
+            </div>
+            <ul className="navbar-nav me-auto">
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                      data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,18 +67,7 @@ const UserProfile = () => {
                   </ul>
                 </li>
               </ul>
-              <div className="home-button">
-                <div className="profile-name">
-                  {userInfo.displayName}
-                </div>
-              </div>
-              {/* Profile Picture Container */}
-              <div className="d-flex ms-auto align-items-center">
-                <div className="profile-pic-container">
-                  <img src={userInfo.profilePicture} className="profile-pic" alt="Profile Picture" />
-                </div>
-              </div>
-            </div>
+              <div className='pad'></div>
           </nav>
           {/* User Stats Header */}
           <div className="user-stats-header">
