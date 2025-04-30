@@ -1,0 +1,89 @@
+
+.review-form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ Centers form contents */
+    text-align: center;
+}
+
+.review-form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    text-align: center; /* ✅ Centers label text */
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    width: 80%; /* Makes inputs smaller */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* ✅ Centers text inside inputs */
+}
+
+
+button {
+    background-color: #004e7c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #003a5c;
+}
+.star-rating {
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.filled-star {
+    color: #ffcc00; /* Gold filled stars */
+}
+
+.empty-star {
+    color: #ccc; /* Gray empty stars */
+}
+.leave-review-container {
+    position: relative;
+    background: #ffffff;
+    width: 90%;
+    max-width: 800px;
+    padding: 70px 20px 20px; /* ✅ Increased top padding */
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 40px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 10px; /* ✅ Moves it higher */
+    left: 20px;
+    font-size: 24px;
+    color: #808080; /* Grey color */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 40px; /* ✅ Adds space between arrow and title */
+    margin-bottom: 20px;
+}

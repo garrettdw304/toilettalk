@@ -4,11 +4,11 @@ import "./BathroomSearch.css";
 import Navbar from "./Navbar";
 
 const bathrooms = [
-  { id: 1, name: "White Hall Floor 3", image: "path/to/image1.jpg" },
+  { id: 1, name: "White Hall Floor 3", image: "assets/imageA.jpg" },
   { id: 2, name: "White Hall Floor 2", image: "path/to/image2.jpg" },
   { id: 3, name: "White Hall Floor 1", image: "path/to/image3.jpg" },
   { id: 4, name: "Evansdale Library Floor 2", image: "path/to/image4.jpg" },
-  { id: 5, name: "HCS Main Building Floor 1", image: "path/to/image5.jpg" },
+  { id: 5, name: "HSC Main Building Floor 1", image: "path/to/image5.jpg" },
   { id: 6, name: "Evansdale Crossing Floor 1", image: "path/to/image6.jpg" },
   { id: 7, name: "Evansdale Crossing Floor 2", image: "path/to/image7.jpg" },
   { id: 8, name: "Evansdale Crossing Floor 3", image: "path/to/image8.jpg" },
