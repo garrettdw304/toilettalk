@@ -47,6 +47,9 @@ const Bathroom = ({ reviews }) => {
     <div>
       <Navbar />
       <div className="bathroom-container">
+      <Link to = "/bathroomsearch">
+      <button className="back-arrow">←</button>
+      </Link>
         <h2>{bathroom.name}</h2>
 
         {bathroom.image ? (

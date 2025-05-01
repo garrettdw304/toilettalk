@@ -49,9 +49,9 @@ const BathroomSearch = () => {
            <p></p>
            <p></p>
            <p></p>
-           <div>
+        <div>
         <Link to="/building-ratings" className="button">
-            View All Ratings
+            View Building Ratings
           </Link>
         </div>
           </div>

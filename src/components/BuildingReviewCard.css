@@ -1,39 +1,185 @@
-.card {
-    padding: 16px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: white;
-  }
-  
-  .card h2 {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .stars {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-  }
-  
-  .star {
-    width: 20px;
-    height: 20px;
-    color: #d1d5db; /* Gray by default */
-  }
-  
-  .star.filled {
-    color: #facc15; /* Yellow for filled stars */
-  }
-  
-  .rating-text {
-    margin-left: 8px;
-    color: #6b7280;
-  }
+.all-bathrooms-container {
+  min-height: 180vh;
+  text-align: center;
+}
 
-  .contents{
-    min-height: 180vh;
-  }
-  .container{
-    padding-top: 400px;
-  }
+.all-bathrooms-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.all-bathrooms-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.all-bathrooms-dropdown {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 220px;
+}
+
+.all-bathrooms-container {
+  min-height: 180vh;
+  text-align: center;
+}
+
+.all-bathrooms-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.all-bathrooms-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.all-bathrooms-dropdown {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 220px;
+}
+
+.all-bathrooms-back-btn {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: transparent;
+  color: #004e7c;
+  border: 2px solid #004e7c;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.all-bathrooms-back-btn:hover {
+  background-color: #004e7c;
+  color: white;
+}
+
+.all-bathrooms-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.all-bathrooms-card {
+  padding: 16px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  text-align: center;
+  max-width: 300px;
+  margin: 15px;
+}
+
+.all-bathrooms-card-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.all-bathrooms-water-fountain {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.all-bathrooms-rating {
+  font-size: 22px;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.all-bathrooms-rating-value {
+  font-size: 16px;
+  color: #555;
+  margin-left: 8px;
+}
+
+.all-bathrooms-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #004e7c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.all-bathrooms-btn:hover {
+  background-color: #003a5c;
+}
+
+
+.all-bathrooms-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.all-bathrooms-card {
+  padding: 16px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  text-align: center;
+  max-width: 300px;
+  margin: 15px;
+}
+
+.all-bathrooms-card-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.all-bathrooms-water-fountain {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.all-bathrooms-rating {
+  font-size: 22px;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.all-bathrooms-rating-value {
+  font-size: 16px;
+  color: #555;
+  margin-left: 8px;
+}
+
+.all-bathrooms-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #004e7c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.all-bathrooms-btn:hover {
+  background-color: #003a5c;
+}
