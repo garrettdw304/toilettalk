@@ -1,28 +1,26 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./BathroomSearch.css";
 import Navbar from "./Navbar";
 
 const bathrooms = [
-  { id: 1, name: "White Hall Floor 3", image: "assets/imageA.jpg" },
-  { id: 2, name: "White Hall Floor 2", image: "path/to/image2.jpg" },
-  { id: 3, name: "White Hall Floor 1", image: "path/to/image3.jpg" },
-  { id: 4, name: "Evansdale Library Floor 2", image: "path/to/image4.jpg" },
-  { id: 5, name: "HSC Main Building Floor 1", image: "path/to/image5.jpg" },
-  { id: 6, name: "Evansdale Crossing Floor 1", image: "path/to/image6.jpg" },
-  { id: 7, name: "Evansdale Crossing Floor 2", image: "path/to/image7.jpg" },
-  { id: 8, name: "Evansdale Crossing Floor 3", image: "path/to/image8.jpg" },
-  { id: 9, name: "Evansdale Crossing Floor 4", image: "path/to/image9.jpg" },
-  { id: 10, name: "Evansdale Crossing Floor 5", image: "path/to/image10.jpg" },
-
+  { id: 1, buildingName: "White Hall", bathroomName: "Floor 3", image: "assets/imageA.jpg" },
+  { id: 2, buildingName: "White Hall", bathroomName: "Floor 2", image: "path/to/image2.jpg" },
+  { id: 3, buildingName: "White Hall", bathroomName: "Floor 1", image: "path/to/image3.jpg" },
+  { id: 4, buildingName: "Evansdale Library", bathroomName: "Floor 2", image: "path/to/image4.jpg" },
+  { id: 5, buildingName: "HSC Main Building", bathroomName: "Floor 1", image: "path/to/image5.jpg" },
+  { id: 6, buildingName: "Evansdale Crossing", bathroomName: "Floor 1", image: "path/to/image6.jpg" },
+  { id: 7, buildingName: "Evansdale Crossing", bathroomName: "Floor 2", image: "path/to/image7.jpg" },
+  { id: 8, buildingName: "Evansdale Crossing", bathroomName: "Floor 3", image: "path/to/image8.jpg" },
+  { id: 9, buildingName: "Evansdale Crossing", bathroomName: "Floor 4", image: "path/to/image9.jpg" },
+  { id: 10, buildingName: "Evansdale Crossing", bathroomName: "Floor 5", image: "path/to/image10.jpg" },
 ];
 
 const BathroomSearch = () => {
     const [query, setQuery] = useState("");
     const filteredBathrooms = bathrooms.filter((bathroom) =>
-      bathroom.name.toLowerCase().includes(query.toLowerCase())
+      `${bathroom.buildingName} ${bathroom.bathroomName}`.toLowerCase().includes(query.toLowerCase())
     );
-  
 
     return (
         <div>
@@ -41,7 +39,7 @@ const BathroomSearch = () => {
             {query &&
               filteredBathrooms.map((bathroom) => (
                 <Link key={bathroom.id} to={`/bathroom/${bathroom.id}`} className="suggestion-item">
-                  {bathroom.name}
+                  {bathroom.buildingName} - {bathroom.bathroomName}
                 </Link>
               ))}
             </div>
@@ -58,5 +56,5 @@ const BathroomSearch = () => {
         </div>
       );
     };
-    
-    export default BathroomSearch;
+
+export default BathroomSearch;
