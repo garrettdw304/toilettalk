@@ -1,26 +1,33 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./BathroomSearch.css";
 import Navbar from "./Navbar";
-
-const bathrooms = [
-  { id: 1, buildingName: "White Hall", bathroomName: "Floor 3", image: "assets/imageA.jpg" },
-  { id: 2, buildingName: "White Hall", bathroomName: "Floor 2", image: "path/to/image2.jpg" },
-  { id: 3, buildingName: "White Hall", bathroomName: "Floor 1", image: "path/to/image3.jpg" },
-  { id: 4, buildingName: "Evansdale Library", bathroomName: "Floor 2", image: "path/to/image4.jpg" },
-  { id: 5, buildingName: "HSC Main Building", bathroomName: "Floor 1", image: "path/to/image5.jpg" },
-  { id: 6, buildingName: "Evansdale Crossing", bathroomName: "Floor 1", image: "path/to/image6.jpg" },
-  { id: 7, buildingName: "Evansdale Crossing", bathroomName: "Floor 2", image: "path/to/image7.jpg" },
-  { id: 8, buildingName: "Evansdale Crossing", bathroomName: "Floor 3", image: "path/to/image8.jpg" },
-  { id: 9, buildingName: "Evansdale Crossing", bathroomName: "Floor 4", image: "path/to/image9.jpg" },
-  { id: 10, buildingName: "Evansdale Crossing", bathroomName: "Floor 5", image: "path/to/image10.jpg" },
-];
+import api from "../api"
 
 const BathroomSearch = () => {
+    const state = useLocation().state;
+    const navigate = useNavigate();
     const [query, setQuery] = useState("");
-    const filteredBathrooms = bathrooms.filter((bathroom) =>
-      `${bathroom.buildingName} ${bathroom.bathroomName}`.toLowerCase().includes(query.toLowerCase())
+    const [buildings, setBuildings] = useState([])
+    const filteredBathrooms = buildings.filter((building) =>
+      building.bathrooms.filter((bathroom) =>
+        `${building.name} ${bathroom.name}`.toLowerCase().includes(query.toLowerCase()))
     );
+
+    const onViewBuildingRatings = () => {
+      navigate("/building-ratings", { state: state})
+    }
+
+    useEffect(() => {
+      api.post('/getBuildingsWithBathrooms/', {
+        page: 1
+      }).then((res) => {
+        console.log(res.data)
+        setBuildings(res.data)
+      }).catch((err) => {
+        alert("Error: " + err.response.data.error)
+      })
+    }, [])
 
     return (
         <div>
@@ -37,20 +44,18 @@ const BathroomSearch = () => {
           />
           <div className="suggestions">
             {query &&
-              filteredBathrooms.map((bathroom) => (
-                <Link key={bathroom.id} to={`/bathroom/${bathroom.id}`} className="suggestion-item">
-                  {bathroom.buildingName} - {bathroom.bathroomName}
+              filteredBathrooms.map((building) => building.bathrooms.map((bathroom) => (
+                <Link key={building.bathroomid} to={`/bathroom/${bathroom.bathroomid}`} className="suggestion-item">
+                  {building.name} - {bathroom.name}
                 </Link>
-              ))}
+              )))}
             </div>
            </div>
            <p></p>
            <p></p>
            <p></p>
         <div>
-        <Link to="/building-ratings" className="button">
-            View Building Ratings
-          </Link>
+          <button className="button" onClick={onViewBuildingRatings}>View Building Ratings</button>
         </div>
           </div>
         </div>

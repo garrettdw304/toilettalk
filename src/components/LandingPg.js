@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './LandingPg.css'
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const onLogin = () => {
+    navigate('/login', { state: location.state })
+  }
+
+  const onCreateAcct = () => {
+    navigate('/createacct', { state: location.state })
+  }
+
   return (
     <div style={styles.container}>
       <div style={styles.card}>
@@ -16,12 +29,8 @@ const LandingPage = () => {
           Log in to share your thoughts, report issues, and connect with the community.
         </p>
         <div style={styles.buttonContainer}>
-          <Link to="/login" className="button" style={styles.button}>
-            Log In
-          </Link>
-          <Link to="/createacct" className="button" style={styles.button}>
-            Create Account
-          </Link>
+          <button onClick={onLogin} className="button">Log In</button>
+          <button onClick={onCreateAcct} className="button">Create Account</button>
         </div>
       </div>
     </div>

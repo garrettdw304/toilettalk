@@ -1,8 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './UserProfile.css';
+import { useEffect, useState } from 'react';
+import api from '../api';
 
 const UserProfile = () => {
+  const [username, setUsername] = useState('');
+  useEffect(() => {
+  // Fetch username from backend
+  const fetchUsername = async () => {
+    try {
+      api.get("http://localhost:9500/api/getMyInfo").then((res) =>{
+          setUsername(res.data.username);
+        }
+      ).catch((err) => {
+        alert(err.response.data.error)
+      })
+    } catch (error) {
+      console.error('Failed to fetch username:', error);
+    }
+  };
+
+  fetchUsername();
+}, []); // [] means run only once when component mounts
   const userInfo = {
     displayName: 'John Doe',
     /*profilePicture: 'path/to/profile-picture.jpg',*/

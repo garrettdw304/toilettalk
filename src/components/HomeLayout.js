@@ -1,8 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './HomeLayout.css';
+import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const HomeLayout = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const state = location.state
+
+  useEffect(() => {
+    console.log(state)
+  })
+
+  const onBathroomRatings = () => {
+    navigate('/bathroomsearch', { state: state })
+  }
+
+  const onChat = () => {
+    navigate('/chat', { state: state })
+  }
+
+  const onMaintReq = () => {
+    navigate('/maintrequest', { state: state })
+  }
+
+  const onUserProfile = () => {
+    navigate('/userprofile', { state: state })
+  }
+
   return (
     <div className="home-container">
       <div className="card">
@@ -19,18 +45,10 @@ const HomeLayout = () => {
           Share your thoughts, report issues, and connect with the community!
         </p>
         <div className="buttonContainer">
-        <Link to="/bathroomsearch" className="button">
-            Bathroom Ratings
-          </Link>
-          <Link to="/chat" className="button">
-            Chat
-          </Link>
-          <Link to="/maintrequest" className="button">
-            Maintenance Request
-          </Link>
-          <Link to="/userprofile" className="button">
-            Profile
-          </Link>
+          <button className="button" onClick={onBathroomRatings}>Bathroom Ratings</button>
+          <button className="button" onClick={onChat}>Chat</button>
+          <button className="button" onClick={onMaintReq}>Maintenance Request</button>
+          <button className="button" onClick={onUserProfile}>Profile</button>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
@@ -18,16 +18,6 @@ import LeaveReview from './components/LeaveReview';
 
 
 function App() {
-  const [reviews, setReviews] = useState({});
-
-  const addReview = (bathroomId, review) => {
-    setReviews(prev => ({
-      ...prev,
-      [bathroomId]: [...(prev[bathroomId] || []), review]
-    }));
-  };
-
-
   return (
       <Router>
       <div className="App">
@@ -41,8 +31,8 @@ function App() {
           <Route path="/maintrequest" element={<MaintRequest />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/bathroomsearch" element={<BathroomSearch />} />
-          <Route path="/bathroom/:id" element={<Bathroom reviews={reviews} />} />
-        <Route path="/leave-review/:id" element={<LeaveReview addReview={addReview} />} />
+          <Route path="/bathroom/:id" element={<Bathroom />} />
+        <Route path="/leave-review/:id" element={<LeaveReview />} />
           <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </div>

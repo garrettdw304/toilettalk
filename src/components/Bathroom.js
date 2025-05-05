@@ -1,46 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./Bathroom.css";
+import api from "../api"
 
-const currentUser = "Emily"; // Replace with actual authentication later
-
-const bathrooms = [
-  { id: 1, buildingName: "White Hall", bathroomName: "Floor 3", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 2, buildingName: "White Hall", bathroomName: "Floor 2", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 3, buildingName: "White Hall", bathroomName: "Floor 1", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 4, buildingName: "Evansdale Library", bathroomName: "Floor 2", image: "/assets/imageA.jpg", waterFountain: false },
-  { id: 5, buildingName: "HSC Main Building", bathroomName: "Floor 1", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 6, buildingName: "Evansdale Crossing", bathroomName: "Floor 1", image: "/assets/imageA.jpg", waterFountain: false },
-  { id: 7, buildingName: "Evansdale Crossing", bathroomName: "Floor 2", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 8, buildingName: "Evansdale Crossing", bathroomName: "Floor 3", image: "/assets/imageA.jpg", waterFountain: false },
-  { id: 9, buildingName: "Evansdale Crossing", bathroomName: "Floor 4", image: "/assets/imageA.jpg", waterFountain: true },
-  { id: 10, buildingName: "Evansdale Crossing", bathroomName: "Floor 5", image: "/assets/imageA.jpg", waterFountain: false }
-];
-
-const hardcodedReviews = [
-  { user: "Alex", rating: 5, comment: "Super clean and well-maintained!" },
-  { user: "Jamie", rating: 3, comment: "Could use better lighting, but overall decent." },
-  { user: "Taylor", rating: 4, comment: "Loved the modern stalls!" }
-];
-
-const calculateAverageRating = (reviews) => {
-  if (reviews.length === 0) return "N/A";
-  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
-  return (total / reviews.length).toFixed(1);
-};
-
-const Bathroom = ({ reviews }) => {
+const Bathroom = () => {
   const { id } = useParams();
-  const bathroom = bathrooms.find(b => b.id === Number(id));
-  const navigate = useNavigate(); 
-  const [reviewList, setReviewList] = useState([...hardcodedReviews, ...(reviews?.[id] || [])]);
+  const navigate = useNavigate();
+  const state = useLocation().state;
+  const [bathroom, setBathroom] = useState([]);
 
   useEffect(() => {
-    setReviewList([...hardcodedReviews, ...(reviews?.[id] || [])]);
-  }, [reviews, id]);
+    api.post('/getBathroomWithReviews/', {
+      page: 1,
+      bathroomid: id
+    }).then((res) => {
+      console.log(res.data)
+      setBathroom(res.data)
+    }).catch((err) => {
+      alert("Error: " + err.response.data.error)
+    })
+  }, []);
 
-  if (!bathroom) return <h2>Bathroom not found!</h2>;
+  const onLeaveAReview = () => {
+    navigate(`/leave-review/${id}`, { state: state })
+  }
+
+  const onMaintenanceRequest = () => {
+    navigate("/maintrequest", { state: state })
+  }
+
+  if (!bathroom || !bathroom.reviews) return <h2>Bathroom not found!</h2>;
 
   return (
     <div>
@@ -50,32 +40,28 @@ const Bathroom = ({ reviews }) => {
           <button className="back-arrow">←</button>
         </Link>
         {/* Updated name format */}
-        <h2>{bathroom.buildingName} - {bathroom.bathroomName}</h2>
+        <h2>{bathroom.buildingName} - {bathroom.name}</h2>
 
-        {bathroom.image ? (
-          <img src={`${process.env.PUBLIC_URL}${bathroom.image}`} alt={`${bathroom.buildingName} ${bathroom.bathroomName}`} className="bathroom-image" />
+        {true ? (
+          <img src={`${process.env.PUBLIC_URL}${"/assets/imageA.jpg"}`} alt={`${bathroom.buildingName} ${bathroom.bathroomName}`} className="bathroom-image" />
         ) : (
           <p className="image-error">Image not available</p>
         )}
 
         {/* Water Fountain Availability */}
         <p className="water-fountain-info">
-          Water Fountain: {bathroom.waterFountain ? "✅ Available" : "❌ Not Available"}
+          Water Fountain: {true ? "✅ Available" : "❌ Not Available"}
         </p>
 
         {/* Average Rating Based on All Reviews */}
         <div className="rating">
-          {"★".repeat(Math.round(calculateAverageRating(reviewList)))}{"☆".repeat(5 - Math.round(calculateAverageRating(reviewList)))}
-          <span className="rating-value">({calculateAverageRating(reviewList)}/5)</span>
+          {"★".repeat(Math.round(bathroom.average))}{"☆".repeat(5 - Math.round(bathroom.average))}
+          <span className="rating-value">({bathroom.average.toFixed(2)}/5)</span>
         </div>
 
         <div className="button-group">
-          <Link to={`/leave-review/${id}`}>
-            <button className="btn">Leave a Review</button>
-          </Link>
-          <Link to="/maintrequest">
-            <button className="btn">Maintenance Request</button>
-          </Link>
+          <button onClick={onLeaveAReview}>Leave A Review</button>
+          <button onClick={onMaintenanceRequest}>Maintenance Request</button>
         </div>
 
         <div className="pad2"></div>
@@ -83,15 +69,14 @@ const Bathroom = ({ reviews }) => {
         {/* Reviews Section */}
         <h3>User Reviews</h3>
         <div className="reviews-container">
-          {reviewList.length > 0 ? (
-            reviewList.map((review, index) => (
+          {bathroom.reviews.length > 0 ? (
+            bathroom.reviews.map((review, index) => (
               <div key={index} className="review">
-                <strong>{review.user}</strong>
+                <strong>{review.username}</strong>
                 <div className="review-rating">
                   {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
                 </div>
-                <p>{review.comment}</p>
-                {review.user === currentUser}
+                <p>{review.review}</p>
               </div>
             ))
           ) : (
