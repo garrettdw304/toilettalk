@@ -36,9 +36,9 @@ const Bathroom = () => {
     <div>
       <Navbar />
       <div className="bathroom-container">
-        <Link to="/bathroomsearch">
-          <button className="back-arrow">←</button>
-        </Link>
+        <div>
+          <button className="back-arrow" onClick={() => navigate("/bathroomsearch", { state: state })}>←</button>
+        </div>
         {/* Updated name format */}
         <h2>{bathroom.buildingName} - {bathroom.name}</h2>
 

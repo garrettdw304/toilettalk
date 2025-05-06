@@ -28,6 +28,10 @@ const ChatPage = () => {
   };
 
   const createChat = (message) => {
+    if (!state) {
+      navigate("/")
+      return;
+    }
     api.post('/createChat/', {
       accessToken: state.accessToken,
       text: message,
@@ -53,9 +57,6 @@ const ChatPage = () => {
   };
 
   useEffect(() => {
-    if (!state || !state.userid)
-      navigate("/")
-    
     getChats()
   }, []);
 
@@ -80,7 +81,7 @@ const ChatPage = () => {
     <span className="sender" style={msg.anon ? {color:"grey"} : {}}>{msg.username + " at " + msg.datetime}:</span>
     <span className="text">{msg.text}</span>
   </div>
-  {msg.userid === state.userid && (
+  {state && msg.userid === state.userid && (
     <button className="delete-btn" onClick={() => deleteChat(msg.chatid)}>Delete</button>
   )}
 </div>

@@ -31,6 +31,7 @@ const LandingPage = () => {
         <div style={styles.buttonContainer}>
           <button onClick={onLogin} className="button">Log In</button>
           <button onClick={onCreateAcct} className="button">Create Account</button>
+          <button onClick={() => navigate("/home")} className="button">Continue As Guest</button>
         </div>
       </div>
     </div>

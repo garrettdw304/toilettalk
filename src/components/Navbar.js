@@ -27,7 +27,7 @@ function Navbar() {
       <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/bathroomsearch", { state: state })} activeClassName="active">Bathroom Ratings</button>
         <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/chat", { state: state })} activeClassName="active">Chat</button>
         <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/maintrequest", { state: state })} activeClassName="active">Maintenance Request</button>
-        <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/userprofile", { state: state })} activeClassName="active">Profile</button>
+        <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/userprofile", { state: state })} activeClassName="active">{state ? state.username : "Profile"}</button>
         </div>
         <a href="/" className="logout_button" title="Log Out">
           <i className="fas fa-sign-out-alt"></i>

@@ -40,7 +40,7 @@ const HomeLayout = () => {
           alt="App Logo"
           className="logo"
         />
-        <h1>Welcome to ToiletTalk</h1>
+        <h1>Welcome to ToiletTalk{state ? " " + state.username + "!" : ""}</h1>
         <p>
           Share your thoughts, report issues, and connect with the community!
         </p>

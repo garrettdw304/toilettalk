@@ -1,33 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './UserProfile.css';
-import { useEffect, useState } from 'react';
-import api from '../api';
+import { useEffect } from 'react';
+import api from '../api'
 
 const UserProfile = () => {
-  const [username, setUsername] = useState('');
-  useEffect(() => {
-  // Fetch username from backend
-  const fetchUsername = async () => {
-    try {
-      api.get("http://localhost:9500/api/getMyInfo").then((res) =>{
-          setUsername(res.data.username);
-        }
-      ).catch((err) => {
-        alert(err.response.data.error)
-      })
-    } catch (error) {
-      console.error('Failed to fetch username:', error);
-    }
-  };
+  const navigate = useNavigate();
+  const state = useLocation().state;
+  const [ reviews, setReviews ] = useState([]);
+  const [ userInfo, setUserInfo ] = useState({
+    displayName: "Loading...",
+    profilePicture: "assets/robot.jpg"
+  });
 
-  fetchUsername();
-}, []); // [] means run only once when component mounts
-  const userInfo = {
-    displayName: 'John Doe',
-    /*profilePicture: 'path/to/profile-picture.jpg',*/
-    profilePicture: 'assets/robot.jpg',
-  };
+  useEffect(() => {
+    if (!state || !state.username) {
+      navigate("/");
+      return;
+    }
+
+    setUserInfo({ ...userInfo, displayName: state.username })
+    
+    api.post('/getMyInfo/', {
+      accessToken: state.accessToken
+    }).then((res) => {
+      console.log(res.data)
+      setReviews(res.data.reviews)
+    }).catch((err) => {
+      if (err.response && err.response.data && err.response.data.error)
+        alert("Error: " + err.response.data.error)
+      else
+        alert("Error: " + err)
+    })
+  }, []); // [] means run only once when component mounts
 
   const userUsage = {
     Total: 50,
@@ -58,10 +63,10 @@ const UserProfile = () => {
           <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
             <div className='title'>
-      <Link to="/home" class="navbar-brand" style={{ color: "white" }}>
+      <button class="navbar-brand" style={{ color: "white" }} onClick={() => navigate("/home", { state: state })}>
         <img src="/assets/duckontoilet.jpg" className='duck' alt="ToiletTalk Logo" />
         <nobr class="jersey-15-regular" style={{ fontSize: "35px" }}>ToiletTalk</nobr>
-      </Link>
+      </button>
       </div>
               {/* Profile Picture Container */}
               <div className="d-flex ms-auto align-items-center">
@@ -131,13 +136,20 @@ const UserProfile = () => {
                     <p>Failed fetching user info</p>
                   ) : (
                     <div className="card mx-3 bg-light" style={{ borderRadius: '10px' }}>
-                      <div className="card-body">
-                        <h5 className="card-title">Recent Reviews</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">Your Commode Chronicles</h6>
-                        <p className="card-text">History:</p>
-                        <p className="card-text">ARM Floor 1: {userReview.Review1}</p>
-                        <p className="card-text">ESB Floor 6: {userReview.Review2}</p>
-                        <p className="card-text">Mountainlair: {userReview.Review3}</p>
+                      <div className="reviews-container">
+                        {reviews.length > 0 ? (
+                          reviews.map((review, index) => (
+                            <div key={index} className="review">
+                              <strong>{review.username}</strong>
+                              <div className="review-rating">
+                                {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
+                              </div>
+                              <p>{review.review}</p>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No reviews yet. Get out there!</p>
+                        )}
                       </div>
                     </div>
                   )}

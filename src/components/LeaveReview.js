@@ -11,6 +11,9 @@ const LeaveReview = () => {
   const [bathroom, setBathroom] = useState(null)
 
   useEffect(() => {
+    if (!state)
+      navigate("/");
+
     api.post('/getBathroomWithReviews/', {
       page: 1,
       bathroomid: id
