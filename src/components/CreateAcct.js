@@ -19,7 +19,7 @@ const CreateAcct = () => {
       password: password
     }).then((res) => {
       console.log(res)
-      navigate('/home', { state: { accessToken: res.data.accessToken, refreshToken: res.data.refreshToken } })
+      navigate('/home', { state: { accessToken: res.data.accessToken, refreshToken: res.data.refreshToken, username: res.data.username, userid: res.data.userid } })
     }).catch((err) => {
       if (err.response && err.response.data && err.response.data.error)
         alert("Error: " + err.response.data.error)

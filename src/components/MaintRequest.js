@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./MaintRequest.css";
 import Navbar from "./Navbar";
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MaintRequest = () => {
+  const navigate = useNavigate();
+  const state = useLocation().state;
   const [formData, setFormData] = useState({
     email: "",
     probType: "",
@@ -111,9 +113,9 @@ const MaintRequest = () => {
         <div>
           <button className="submit-btn" type="submit">Send Report</button>
           <p></p>
-          <Link className="cancel_link" to="/home">
-                <button className="cancel-btn">Cancel</button>
-              </Link>
+          <div className="cancel_link">
+                <button className="cancel-btn" onClick={() => navigate('/home', { state: state })}>Cancel</button>
+              </div>
               </div>
         </form>
       </div>

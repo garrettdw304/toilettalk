@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 function Navbar() {
-
+  const navigate = useNavigate();
   const location = useLocation();
+  const state = location.state;
 
   // Check if the current route is the user profile view
   const isUserProfile = location.pathname === '/userprofile';
@@ -16,17 +17,17 @@ function Navbar() {
   return (
     <div class="navbar navbar-menu">
       <div className='title'>
-      <Link to="/home" class="navbar-brand" style={{ color: "white" }}>
+      <button class="navbar-brand" style={{ color: "white" }} onClick={() => navigate("/home", { state: state })}>
         <img src="/assets/duckontoilet.jpg" className='duck' alt="ToiletTalk Logo" />
         <nobr class="jersey-15-regular" style={{ fontSize: "35px" }}>ToiletTalk</nobr>
-      </Link>
+      </button>
       </div>
 
       <div className='navbar-buttons'>
-      <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/bathroomsearch" activeClassName="active">Bathroom Ratings</Link>
-        <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/chat" activeClassName="active">Chat</Link>
-        <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/maintrequest" activeClassName="active">Maintenance Request</Link>
-        <Link className="jersey-15-regular" style={{ fontSize: "25px" }} to="/userprofile" activeClassName="active">Profile</Link>
+      <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/bathroomsearch", { state: state })} activeClassName="active">Bathroom Ratings</button>
+        <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/chat", { state: state })} activeClassName="active">Chat</button>
+        <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/maintrequest", { state: state })} activeClassName="active">Maintenance Request</button>
+        <button className="jersey-15-regular" style={{ fontSize: "25px" }} onClick={() => navigate("/userprofile", { state: state })} activeClassName="active">Profile</button>
         </div>
         <a href="/" className="logout_button" title="Log Out">
           <i className="fas fa-sign-out-alt"></i>

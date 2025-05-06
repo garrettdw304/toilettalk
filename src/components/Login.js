@@ -19,7 +19,10 @@ const LoginPage = () => {
       }).then((res) => {
       navigate('/home', { state: {
           accessToken: res.data.accessToken,
-          refreshToken: res.data.refreshToken}})
+          refreshToken: res.data.refreshToken,
+          username: res.data.username,
+          userid: res.data.userid
+        }})
     }).catch((err) => {
       alert("Error: " + err.response.data.error)
     })
